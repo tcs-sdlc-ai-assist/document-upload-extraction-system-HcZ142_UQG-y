@@ -1,34 +1,8 @@
 {
-  "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "server/index.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "vite.config.js",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "server/index.js"
-    },
-    {
-      "src": "/(assets/.*)",
-      "dest": "dist/$1"
-    },
-    {
-      "src": "/(.*\\.(js|css|ico|png|jpg|jpeg|svg|gif|woff|woff2|ttf|eot))",
-      "dest": "dist/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "dist/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
